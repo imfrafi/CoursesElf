@@ -129,7 +129,7 @@ public class ScheduleListener implements ActionListener {
                             }
                         }
                         for( Course cs: courses ){
-                            if( cs.getName().equals(s) ){
+                            if( cs.getName().equals(s) ){ 
                                 courses.remove( cs );
                                 break;
                             }
@@ -138,8 +138,9 @@ public class ScheduleListener implements ActionListener {
                 }
 
                 for( Course cs: courses ){
-                    rawCourses = new JButton( String.format( "%-20s序號：%d    科目代碼：%s    教師姓名：%s    學分數：%d    上課時間/上課教室：%s", cs.getName(), cs.getOrder(), cs.getNumber(), cs.getTeacher(), cs.getCredit(), cs.getRawPlace()) );
+                    rawCourses = new JButton( String.format("<html><body><div style='color:#ffffff;font-size:10px;font-family:微軟正黑體;'>%-20s序號：%d    科目代碼：%s    教師姓名：%s    學分數：%d    上課時間/上課教室：%s</div></body></html>", cs.getName(), cs.getOrder(), cs.getNumber(), cs.getTeacher(), cs.getCredit(), cs.getRawPlace() ) );
                     rawCourses.setHorizontalAlignment( SwingConstants.LEFT );
+                    rawCourses.setBackground( new Color(168,87,0));
                     rawjp.add( rawCourses );
                     rawCourses.addActionListener( new RemoveListener( rawCourses, courses ) );
                 }
